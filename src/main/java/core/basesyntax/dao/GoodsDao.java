@@ -1,6 +1,7 @@
 package core.basesyntax.dao;
 
 import core.basesyntax.model.Accountable;
+import java.util.List;
 
 public interface GoodsDao {
     Accountable create(String goodsName);
@@ -10,4 +11,6 @@ public interface GoodsDao {
     Accountable get(String goodsName);
 
     boolean isExist(String goodsName);
+
+    List<Accountable> getAll();
 }

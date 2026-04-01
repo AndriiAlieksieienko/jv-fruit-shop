@@ -4,6 +4,7 @@ import core.basesyntax.dao.GoodsDao;
 import core.basesyntax.db.Storage;
 import core.basesyntax.model.Accountable;
 import core.basesyntax.model.Fruit;
+import java.util.List;
 
 public class FruitDaoImpl implements GoodsDao {
     @Override
@@ -29,5 +30,10 @@ public class FruitDaoImpl implements GoodsDao {
     public boolean isExist(String fruitName) {
         return Storage.getFruits().stream()
                 .anyMatch(f -> f.getName().equals(fruitName));
+    }
+
+    @Override
+    public List<Accountable> getAll() {
+        return Storage.getFruits();
     }
 }

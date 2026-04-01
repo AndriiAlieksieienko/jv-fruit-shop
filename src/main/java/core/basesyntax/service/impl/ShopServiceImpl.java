@@ -1,7 +1,6 @@
 package core.basesyntax.service.impl;
 
 import core.basesyntax.dao.GoodsDao;
-import core.basesyntax.db.Storage;
 import core.basesyntax.model.Accountable;
 import core.basesyntax.service.ShopService;
 import core.basesyntax.strategy.AccountHandler;
@@ -38,7 +37,7 @@ public class ShopServiceImpl implements ShopService {
             handler.account(fruit, Integer.parseInt(transaction[AMOUNT_INDEX]));
         }
 
-        return Storage.getFruits().stream()
+        return fruitDao.getAll().stream()
                 .map(fruit -> new String[]{
                         fruit.getName(),
                         String.valueOf(fruit.getAmount())
