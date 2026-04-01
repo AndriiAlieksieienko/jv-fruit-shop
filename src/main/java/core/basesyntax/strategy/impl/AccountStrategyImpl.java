@@ -1,7 +1,8 @@
-package core.basesyntax.service;
+package core.basesyntax.strategy.impl;
 
-import core.basesyntax.service.account.AccountHandler;
-import core.basesyntax.service.account.AccountType;
+import core.basesyntax.strategy.AccountHandler;
+import core.basesyntax.strategy.AccountStrategy;
+import core.basesyntax.strategy.AccountType;
 import java.util.Map;
 
 public class AccountStrategyImpl implements AccountStrategy {

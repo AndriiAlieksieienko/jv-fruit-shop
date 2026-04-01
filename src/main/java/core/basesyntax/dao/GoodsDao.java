@@ -1,6 +1,6 @@
 package core.basesyntax.dao;
 
-import core.basesyntax.db.Accountable;
+import core.basesyntax.model.Accountable;
 
 public interface GoodsDao {
     Accountable create(String goodsName);

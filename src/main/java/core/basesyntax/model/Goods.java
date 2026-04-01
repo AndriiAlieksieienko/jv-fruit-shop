@@ -1,4 +1,4 @@
-package core.basesyntax.db;
+package core.basesyntax.model;
 
 abstract class Goods implements Accountable {
     private String name;

@@ -1,6 +1,6 @@
-package core.basesyntax.service.account;
+package core.basesyntax.strategy;
 
-import core.basesyntax.db.Accountable;
+import core.basesyntax.model.Accountable;
 
 public interface AccountHandler {
     void account(Accountable fruit, int amount);

@@ -1,4 +1,4 @@
-package core.basesyntax.service.account;
+package core.basesyntax.strategy;
 
 public enum AccountType {
     BALANCE("b"),

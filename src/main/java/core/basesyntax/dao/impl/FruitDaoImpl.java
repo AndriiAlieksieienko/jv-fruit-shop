@@ -1,18 +1,19 @@
-package core.basesyntax.dao;
+package core.basesyntax.dao.impl;
 
-import core.basesyntax.db.Accountable;
-import core.basesyntax.db.Fruit;
+import core.basesyntax.dao.GoodsDao;
 import core.basesyntax.db.Storage;
+import core.basesyntax.model.Accountable;
+import core.basesyntax.model.Fruit;
 
 public class FruitDaoImpl implements GoodsDao {
     @Override
     public void add(Accountable fruit) {
-        Storage.fruits.add(fruit);
+        Storage.getFruits().add(fruit);
     }
 
     @Override
     public Accountable get(String fruitName) {
-        return Storage.fruits.stream()
+        return Storage.getFruits().stream()
                 .filter(f -> f.getName().equals(fruitName))
                 .findFirst().orElse(null);
     }
@@ -26,7 +27,7 @@ public class FruitDaoImpl implements GoodsDao {
 
     @Override
     public boolean isExist(String fruitName) {
-        return Storage.fruits.stream()
+        return Storage.getFruits().stream()
                 .anyMatch(f -> f.getName().equals(fruitName));
     }
 }

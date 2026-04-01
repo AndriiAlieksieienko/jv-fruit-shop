@@ -1,10 +1,12 @@
-package core.basesyntax.service;
+package core.basesyntax.service.impl;
 
 import core.basesyntax.dao.GoodsDao;
-import core.basesyntax.db.Accountable;
 import core.basesyntax.db.Storage;
-import core.basesyntax.service.account.AccountHandler;
-import core.basesyntax.service.account.AccountType;
+import core.basesyntax.model.Accountable;
+import core.basesyntax.service.ShopService;
+import core.basesyntax.strategy.AccountHandler;
+import core.basesyntax.strategy.AccountStrategy;
+import core.basesyntax.strategy.AccountType;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,7 +38,7 @@ public class ShopServiceImpl implements ShopService {
             handler.account(fruit, Integer.parseInt(transaction[AMOUNT_INDEX]));
         }
 
-        return Storage.fruits.stream()
+        return Storage.getFruits().stream()
                 .map(fruit -> new String[]{
                         fruit.getName(),
                         String.valueOf(fruit.getAmount())

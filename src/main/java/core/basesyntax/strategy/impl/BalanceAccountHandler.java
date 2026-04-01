@@ -1,6 +1,7 @@
-package core.basesyntax.service.account;
+package core.basesyntax.strategy.impl;
 
-import core.basesyntax.db.Accountable;
+import core.basesyntax.model.Accountable;
+import core.basesyntax.strategy.AccountHandler;
 
 public class BalanceAccountHandler implements AccountHandler {
     @Override

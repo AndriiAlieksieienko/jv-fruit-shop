@@ -1,5 +1,6 @@
-package core.basesyntax.filemanager;
+package core.basesyntax.file.impl;
 
+import core.basesyntax.file.FileManager;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -30,25 +31,19 @@ public class FileManagerImpl implements FileManager {
     @Override
     public void write(List<String[]> report, String outputFile) {
         File file = new File(outputFile);
-        try {
-            FileWriter fileWriter = new FileWriter(file);
 
-            try (BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-                bufferedWriter.write("fruit,quantity");
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
+            bufferedWriter.write("fruit,quantity");
+            bufferedWriter.flush();
+
+            for (String[] data : report) {
+                bufferedWriter.newLine();
+                bufferedWriter.write(data[0] + "," + data[1]);
                 bufferedWriter.flush();
-
-                for (String[] data : report) {
-                    bufferedWriter.newLine();
-                    bufferedWriter.write(data[0] + "," + data[1]);
-                    bufferedWriter.flush();
-                }
-
-            } catch (IOException e) {
-                throw new RuntimeException("Can't write file", e);
             }
-        } catch (IOException e) {
-            throw new RuntimeException("Can't create file", e);
-        }
 
+        } catch (IOException e) {
+            throw new RuntimeException("Can't write file", e);
+        }
     }
 }

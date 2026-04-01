@@ -1,4 +1,4 @@
-package core.basesyntax.db;
+package core.basesyntax.model;
 
 public class Fruit extends Goods {
     public Fruit(String name) {
